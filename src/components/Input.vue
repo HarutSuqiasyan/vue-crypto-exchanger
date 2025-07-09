@@ -1,6 +1,7 @@
 <template>
   <input min="0" type="number" @input="this.changeAmount($event.target.value)" />
   <button class="light-blue-button" @click="convert()">Convert</button>
+  <button class="light-blue-button" @click="favourite()">Add to favourites</button>
 </template>
 
 <script>
@@ -11,6 +12,10 @@ export default {
       required: true
     },
     convert: {
+      type: Function,
+      required: true
+    },
+    favourite: {
       type: Function,
       required: true
     }

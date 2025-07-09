@@ -1,0 +1,46 @@
+<template>
+    <h2 class="h2">Options in favourites</h2>
+    <div @click="getFromFavs(index)" v-for="(el, index) in favs" >
+        <span>{{ `From ${el.from}`}}</span>
+        <span>{{ ` To ${el.to}`}}</span>
+    </div>
+</template>
+
+<script>
+export default{
+    props: {
+        favs: {
+            type: Array,
+            required: true
+        },
+        getFromFavs: {
+            type: Function,
+            required: true
+        }
+    }
+}
+</script>
+
+<style scoped>
+    .h2{
+        color: #fafafa;
+    }
+    div{
+        display: flex;
+        justify-content: space-between;
+        width: 500px;
+        margin: 0 auto;
+        transition: all 500ms ease;
+    }
+    span{
+        padding: 10px 15px;
+        background: #8c00ff;
+        color: #fafafa;
+        margin: 5px;
+    }
+    div:hover{
+        opacity: 0.7;
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+</style>
