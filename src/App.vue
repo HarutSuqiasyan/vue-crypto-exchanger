@@ -3,7 +3,7 @@
   <Input :changeAmount="changeAmount" :convert="convert" :favourite="favourite"/>
   <p v-if="error != ''">{{ error }}</p>
   <p class="result" v-if="result != ''">{{ resultIs }}</p>
-  <Favourite :favs="favs" v-if="favs.length > 0" :getFromFavs="getFromFavs"/>
+  <Favourite :favs="favs" v-if="favs.length > 0" :getFromFavs="getFromFavs" :deleteFav="deleteFav"/>
   <div class="selectors">
     <Selector :setCrypto="setCryptoFirst" :cryptoNow="cryptoFirst"/>
     <Selector :setCrypto="setCryptoSecond":cryptoNow="cryptoSecond"/>
@@ -82,6 +82,9 @@ export default {
     getFromFavs(index) {
       this.cryptoFirst = this.favs[index].from;
       this.cryptoSecond = this.favs[index].to;
+    },
+    deleteFav(index){
+      this.favs.splice(index, 1)
     }
   }
 };

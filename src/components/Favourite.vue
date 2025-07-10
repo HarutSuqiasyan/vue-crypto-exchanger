@@ -3,6 +3,7 @@
     <div @click="getFromFavs(index)" v-for="(el, index) in favs" >
         <span>{{ `From ${el.from}`}}</span>
         <span>{{ ` To ${el.to}`}}</span>
+        <button @click="deleteFav(index)">Delete</button>
     </div>
 </template>
 
@@ -14,6 +15,10 @@ export default{
             required: true
         },
         getFromFavs: {
+            type: Function,
+            required: true
+        },
+        deleteFav: {
             type: Function,
             required: true
         }
